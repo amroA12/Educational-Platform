@@ -10,7 +10,7 @@ interface CheckboxProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'typ
 export function Checkbox({ label, className, ref, ...props }: CheckboxProps) {
   const id = useId()
   return (
-    <label htmlFor={id} className={cn('group inline-flex cursor-pointer items-center gap-2.5 text-sm', className)}>
+    <label htmlFor={id} className={cn('group flex w-fit cursor-pointer items-center gap-2.5 text-sm', className)}>
       <span className="relative flex size-5 shrink-0 items-center justify-center">
         <input
           id={id}
