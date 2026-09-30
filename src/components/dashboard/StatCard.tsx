@@ -23,9 +23,9 @@ export function StatCard({ label, value, hint, icon: Icon, tone = 'brand' }: Sta
         <Icon className="size-6" aria-hidden="true" />
       </span>
       <div className="min-w-0">
-        <p className="truncate text-sm font-semibold text-fg-muted">{label}</p>
+        <p className="text-sm font-semibold leading-tight text-fg-muted">{label}</p>
         <p className="text-2xl font-extrabold leading-tight">{value}</p>
-        {hint && <p className="truncate text-xs text-fg-subtle">{hint}</p>}
+        {hint && <p className="mt-0.5 text-xs text-fg-subtle">{hint}</p>}
       </div>
     </div>
   )

@@ -241,6 +241,35 @@
   }
 }
 
+/* Print only the certificate (see CertificateCard). */
+@media print {
+  @page {
+    size: landscape;
+    margin: 0;
+  }
+  body * {
+    visibility: hidden !important;
+  }
+  .print-area,
+  .print-area * {
+    visibility: visible !important;
+  }
+  dialog {
+    position: static !important;
+    max-height: none !important;
+    overflow: visible !important;
+  }
+  .print-area {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12mm;
+    background: #fff;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

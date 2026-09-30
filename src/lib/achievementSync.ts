@@ -4,6 +4,7 @@ import { useAchievementStore } from '@/store/achievementStore'
 import { useCourseStore } from '@/store/courseStore'
 import { useNotificationStore } from '@/store/notificationStore'
 import { useProgressStore } from '@/store/progressStore'
+import { useSettingsStore } from '@/store/settingsStore'
 import { useQuizStore } from '@/store/quizStore'
 import { toast } from '@/store/toastStore'
 import { computeLearnerStats, getCourseProgressInfo } from './stats'
@@ -25,7 +26,7 @@ export const syncAchievements = ({ silent = false }: { silent?: boolean } = {}) 
   achievements.forEach((achievement) => {
     if (unlocked[achievement.id] || stats[achievement.metric] < achievement.target) return
     unlock(achievement.id)
-    if (silent) return
+    if (silent || !useSettingsStore.getState().notifications.achievements) return
     toast.success('Achievement unlocked', achievement.name)
     useNotificationStore.getState().add({
       title: 'You completed a new achievement',
@@ -46,6 +47,7 @@ const announceMilestones = (
   Object.keys(next).forEach((courseId) => {
     const before = getCourseProgressInfo(courseId, previous[courseId]).percent
     const after = getCourseProgressInfo(courseId, next[courseId]).percent
+    if (!useSettingsStore.getState().notifications.courseReminders) return
     const crossed = MILESTONES.find((mark) => before < mark && after >= mark)
     const key = `${courseId}:${crossed}`
     if (!crossed || announced.has(key)) return
