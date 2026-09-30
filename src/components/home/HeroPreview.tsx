@@ -39,9 +39,9 @@ export function HeroPreview() {
             <span className="font-bold">This week</span>
             <span className="font-semibold text-fg-subtle">15h total</span>
           </div>
-          <div className="flex h-24 items-end justify-between gap-2">
+          <div className="flex h-28 items-stretch justify-between gap-2">
             {bars.map((height, index) => (
-              <div key={index} className="flex flex-1 flex-col items-center gap-1.5">
+              <div key={index} className="flex h-full flex-1 flex-col items-center justify-end gap-1.5">
                 <div
                   className={`w-full rounded-lg ${index === 4 ? 'bg-gradient-to-t from-brand-600 to-brand-400' : 'bg-brand-200 dark:bg-brand-500/30'}`}
                   style={{ height: `${height}%` }}

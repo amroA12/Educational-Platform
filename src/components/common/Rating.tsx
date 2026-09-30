@@ -19,7 +19,7 @@ export function Rating({ value, count, size = 'sm', showValue = true, className 
       aria-label={`Rated ${value.toFixed(1)} out of 5${count ? ` from ${count.toLocaleString()} reviews` : ''}`}
     >
       {showValue && (
-        <span aria-hidden="true" className={cn('font-bold text-amber-600 dark:text-amber-400', size === 'sm' ? 'text-sm' : 'text-base')}>
+        <span aria-hidden="true" className={cn('font-bold text-warning-ink', size === 'sm' ? 'text-sm' : 'text-base')}>
           {value.toFixed(1)}
         </span>
       )}

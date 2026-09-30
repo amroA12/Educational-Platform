@@ -53,6 +53,7 @@ export default function Achievements() {
       />
 
       <div id="achievements-panel" role="tabpanel" aria-labelledby={`achievements-${filter}`} className="mt-6">
+        <h2 className="sr-only">Your achievements</h2>
         {visible.length === 0 ? (
           <EmptyState
             icon={Trophy}

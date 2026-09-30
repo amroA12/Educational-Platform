@@ -49,7 +49,7 @@ export function Hero() {
             </ButtonLink>
           </div>
 
-          <SearchBox variant="hero" placeholder="What do you want to learn today?" className="mt-8" />
+          <SearchBox variant="hero" placeholder="Search for a skill…" className="mt-8" />
 
           <div className="mt-8 flex items-center gap-4">
             <ul className="flex -space-x-2">

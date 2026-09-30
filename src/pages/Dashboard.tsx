@@ -127,7 +127,7 @@ export default function Dashboard() {
             </p>
           </header>
 
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
+          <div className="grid grid-cols-2 gap-3 sm:gap-4 xl:grid-cols-4">
             <StatCard label="Courses in Progress" value={String(inProgress.length)} hint={`${Object.keys(enrollments).length} enrolled`} icon={BookOpenCheck} />
             <StatCard label="Completed Courses" value={String(completed.length)} hint={completed.length ? 'Certificates earned' : 'Finish one to earn a certificate'} icon={Award} tone="emerald" />
             <StatCard label="Learning Hours" value={formatMinutes(Math.round(stats.learningHours * 60))} hint="All-time total" icon={Clock} tone="amber" />

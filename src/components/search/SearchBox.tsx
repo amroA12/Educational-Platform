@@ -87,7 +87,7 @@ export function SearchBox({
 
   return (
     <div ref={rootRef} className={cn('relative', className)}>
-      <form role="search" onSubmit={onSubmit}>
+      <form role="search" aria-label={variant === 'hero' ? 'Search courses' : 'Site search'} onSubmit={onSubmit}>
         <label htmlFor={`${listId}-input`} className="sr-only">
           Search Learnify
         </label>

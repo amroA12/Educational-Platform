@@ -119,7 +119,7 @@ export function VideoPlayer({ title, subtitle, durationSeconds, tone }: VideoPla
         type="button"
         onClick={togglePlay}
         aria-label={playing ? 'Pause' : ended ? 'Replay' : 'Play'}
-        className="absolute inset-0 -z-10 flex items-center justify-center text-left"
+        className="absolute inset-0 -z-10 block text-left"
         style={{ background: toneBackground(tone) }}
       >
         <span
@@ -127,9 +127,9 @@ export function VideoPlayer({ title, subtitle, durationSeconds, tone }: VideoPla
           className="absolute inset-0 opacity-25 [background-image:linear-gradient(rgb(255_255_255)_1px,transparent_1px),linear-gradient(90deg,rgb(255_255_255)_1px,transparent_1px)] [background-size:32px_32px]"
         />
         <span aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-black/30" />
-        <span className="relative mx-auto max-w-2xl px-8 text-center">
-          <span className="text-xs font-bold uppercase tracking-[0.2em] text-white/75 sm:text-sm">{subtitle}</span>
-          <span className="mt-2 block text-xl font-extrabold leading-tight sm:text-3xl lg:text-4xl">{title}</span>
+        <span className="absolute inset-x-0 top-0 block max-w-2xl p-4 sm:p-7">
+          <span className="block text-[10px] font-bold uppercase tracking-[0.2em] text-white/75 sm:text-sm">{subtitle}</span>
+          <span className="mt-1 block text-lg font-extrabold leading-tight sm:mt-2 sm:text-3xl lg:text-4xl">{title}</span>
         </span>
       </button>
 

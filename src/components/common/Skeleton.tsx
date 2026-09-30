@@ -53,7 +53,7 @@ export function DashboardSkeleton() {
         <Skeleton className="h-8 w-64" />
         <Skeleton className="h-4 w-48" />
       </div>
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
+      <div className="grid grid-cols-2 gap-3 sm:gap-4 xl:grid-cols-4">
         {Array.from({ length: 4 }, (_, index) => (
           <Skeleton key={index} className="h-28 rounded-2xl" />
         ))}

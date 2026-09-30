@@ -21,9 +21,9 @@ export function AuthLayout() {
         <main id="main" className="mx-auto flex w-full max-w-md flex-1 flex-col justify-center py-10">
           <Outlet />
         </main>
-        <p className="text-center text-xs text-fg-subtle">
+        <footer className="text-center text-xs text-fg-subtle">
           Demo app — no real account is created and no data leaves your browser.
-        </p>
+        </footer>
       </div>
 
       <aside className="relative hidden overflow-hidden bg-gradient-to-br from-brand-700 via-brand-800 to-brand-950 p-12 text-white lg:flex lg:flex-col lg:justify-between">

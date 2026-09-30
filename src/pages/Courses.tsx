@@ -122,6 +122,7 @@ export default function Courses() {
         </aside>
 
         <section aria-label="Course results" aria-busy={loading}>
+          <h2 className="sr-only">Course results</h2>
           <div className="mb-5 flex items-center justify-between gap-3">
             <p className="text-sm font-semibold text-fg-muted" role="status" aria-live="polite">
               {loading ? 'Loading courses…' : `Showing ${results.length} ${results.length === 1 ? 'course' : 'courses'}`}

@@ -27,8 +27,8 @@ export function ActivityChart({ data }: { data: WeeklyActivityPoint[] }) {
           <BarChart data={data} margin={{ top: 12, right: 4, bottom: 0, left: -24 }} barCategoryGap="28%">
             <defs>
               <linearGradient id="bar-gradient" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stopColor="var(--color-brand-400)" />
-                <stop offset="100%" stopColor="var(--color-brand-600)" />
+                <stop offset="0%" style={{ stopColor: 'var(--color-brand-400)' }} />
+                <stop offset="100%" style={{ stopColor: 'var(--color-brand-600)' }} />
               </linearGradient>
             </defs>
             <CartesianGrid vertical={false} stroke="var(--border)" strokeDasharray="4 4" />

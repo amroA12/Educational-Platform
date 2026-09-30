@@ -77,7 +77,7 @@ export default function Profile() {
         </div>
       </header>
 
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
+      <div className="grid grid-cols-2 gap-3 sm:gap-4 xl:grid-cols-4">
         <StatCard label="Courses enrolled" value={String(enrolled.length)} icon={BookOpenCheck} />
         <StatCard label="Lessons completed" value={String(stats.lessonsCompleted)} icon={ListChecks} tone="emerald" />
         <StatCard label="Learning time" value={formatMinutes(Math.round(stats.learningHours * 60))} icon={Clock} tone="amber" />

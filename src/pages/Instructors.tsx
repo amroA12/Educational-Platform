@@ -12,6 +12,7 @@ export default function Instructors() {
           Learn from practitioners who do this work every day and love to teach it.
         </p>
       </header>
+      <h2 className="sr-only">All instructors</h2>
       <ul className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
         {instructors.map((instructor) => (
           <li key={instructor.id}>

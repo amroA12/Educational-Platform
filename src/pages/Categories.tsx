@@ -10,6 +10,7 @@ export default function Categories() {
         <h1 className="text-3xl font-extrabold sm:text-4xl">Categories</h1>
         <p className="mt-2 text-lg text-fg-muted">Pick a topic to see every course in that area.</p>
       </header>
+      <h2 className="sr-only">All categories</h2>
       <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {categories.map((category) => (
           <li key={category.id}>

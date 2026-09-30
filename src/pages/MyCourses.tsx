@@ -80,6 +80,7 @@ export default function MyCourses() {
       />
 
       <div id="my-courses-panel" role="tabpanel" aria-labelledby={`my-courses-${tab}`} className="mt-6">
+        <h2 className="sr-only">Your courses</h2>
         {loading ? <CourseGridSkeleton count={6} /> : error ? <ErrorState onRetry={retry} /> : panels[tab]}
       </div>
     </div>

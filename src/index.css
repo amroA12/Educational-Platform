@@ -99,7 +99,7 @@
   --border-strong: #cdd2e3;
   --fg: #12152e;
   --fg-muted: #555c78;
-  --fg-subtle: #69708d;
+  --fg-subtle: #5b6280;
 
   --primary: var(--color-brand-600);
   --primary-hover: var(--color-brand-700);
@@ -107,7 +107,7 @@
   --primary-soft: var(--color-brand-50);
 
   --success-ink: #047857;
-  --warning-ink: #b45309;
+  --warning-ink: #92400e;
   --danger-ink: #be123c;
 }
 

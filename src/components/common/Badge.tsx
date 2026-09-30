@@ -12,7 +12,7 @@ const tones: Record<BadgeTone, string> = {
   info: 'bg-sky-500/12 text-sky-700 dark:text-sky-300',
   // Opaque variants for badges that sit on top of imagery, where tinted backgrounds lose contrast.
   overlay: 'bg-white text-slate-900 shadow-sm',
-  solidSuccess: 'bg-emerald-600 text-white shadow-sm',
+  solidSuccess: 'bg-emerald-700 text-white shadow-sm',
   solidBrand: 'bg-primary text-white shadow-sm',
 }
 

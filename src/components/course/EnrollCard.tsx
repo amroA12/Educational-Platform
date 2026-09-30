@@ -91,7 +91,7 @@ export function EnrollCard({ course }: { course: Course }) {
                     <span className="sr-only">Original price </span>
                     {formatPrice(course.originalPrice)}
                   </span>
-                  <span className="rounded-full bg-emerald-600 px-2.5 py-0.5 text-xs font-bold text-white">
+                  <span className="rounded-full bg-emerald-700 px-2.5 py-0.5 text-xs font-bold text-white">
                     {discount}% off
                   </span>
                 </>

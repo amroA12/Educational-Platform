@@ -18,9 +18,9 @@ const tones = {
 
 export function StatCard({ label, value, hint, icon: Icon, tone = 'brand' }: StatCardProps) {
   return (
-    <div className="card flex items-center gap-4 p-5">
-      <span className={cn('flex size-12 shrink-0 items-center justify-center rounded-xl', tones[tone])}>
-        <Icon className="size-6" aria-hidden="true" />
+    <div className="card flex flex-col items-start gap-3 p-4 sm:flex-row sm:items-center sm:gap-4 sm:p-5">
+      <span className={cn('flex size-10 shrink-0 items-center justify-center rounded-xl sm:size-12', tones[tone])}>
+        <Icon className="size-5 sm:size-6" aria-hidden="true" />
       </span>
       <div className="min-w-0">
         <p className="text-sm font-semibold leading-tight text-fg-muted">{label}</p>

@@ -69,7 +69,7 @@ export function CourseReviews({ course }: { course: Course }) {
                   {value}
                   <Star className="size-3.5 fill-current" aria-hidden="true" />
                   <span className="sr-only">stars</span>
-                  <span className="font-normal opacity-80">({counts[value]})</span>
+                  <span className={cn('font-normal', selected && 'opacity-90')}>({counts[value]})</span>
                 </>
               )}
             </button>

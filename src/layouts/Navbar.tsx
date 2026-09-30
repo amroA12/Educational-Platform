@@ -45,9 +45,11 @@ export function Navbar() {
             <>
               <NotificationCenter />
               <UserMenu />
-              <ButtonLink to="/dashboard" size="sm" className="ml-1 hidden lg:inline-flex">
-                Dashboard
-              </ButtonLink>
+              <div className="ml-1 hidden xl:block">
+                <ButtonLink to="/dashboard" size="sm">
+                  Dashboard
+                </ButtonLink>
+              </div>
             </>
           ) : (
             <div className="hidden items-center gap-2 lg:flex">
