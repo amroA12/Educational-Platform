@@ -13,6 +13,7 @@ export const router = createBrowserRouter([
         children: [
           { index: true, element: lazyPage(() => import('@/pages/Home')) },
           { path: 'courses', element: lazyPage(() => import('@/pages/Courses')) },
+          { path: 'courses/:courseId', element: lazyPage(() => import('@/pages/CourseDetails')) },
           { path: 'categories', element: lazyPage(() => import('@/pages/Categories')) },
           { path: 'categories/:categoryId', element: lazyPage(() => import('@/pages/CategoryDetails')) },
           { path: 'instructors', element: lazyPage(() => import('@/pages/Instructors')) },
