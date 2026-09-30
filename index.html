@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#5b3fe8" />
+    <meta
+      name="description"
+      content="Learnify is a modern learning platform. Build practical skills through structured courses, interactive lessons, quizzes, and progress tracking."
+    />
+    <title>Learnify — Learn smarter. Grow faster.</title>
+    <script>
+      // Apply the saved theme before first paint to avoid a light-mode flash.
+      try {
+        var raw = localStorage.getItem('learnify:theme')
+        var mode = raw ? JSON.parse(raw).state.mode : 'system'
+        var dark =
+          mode === 'dark' ||
+          (mode !== 'light' && window.matchMedia('(prefers-color-scheme: dark)').matches)
+        if (dark) document.documentElement.classList.add('dark')
+      } catch (e) {}
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

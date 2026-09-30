@@ -1,0 +1,237 @@
+@import 'tailwindcss';
+@import '@fontsource-variable/plus-jakarta-sans';
+
+/* Class-based dark mode: <html class="dark"> */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ==========================================================================
+   Learnify design tokens
+   --------------------------------------------------------------------------
+   1. Raw scales (brand palette, type, radius, shadow, motion) live in @theme.
+   2. Semantic tokens (surface / text / border) are CSS variables that swap
+      between light and dark, so components rarely need `dark:` variants.
+   ========================================================================== */
+@theme {
+  --font-sans: 'Plus Jakarta Sans Variable', ui-sans-serif, system-ui, -apple-system, 'Segoe UI',
+    sans-serif;
+
+  /* Brand — a confident indigo/violet */
+  --color-brand-50: #f2f0ff;
+  --color-brand-100: #e7e3ff;
+  --color-brand-200: #d1cbff;
+  --color-brand-300: #b2a8ff;
+  --color-brand-400: #8f7fff;
+  --color-brand-500: #6d55f5;
+  --color-brand-600: #5b3fe8;
+  --color-brand-700: #4c31cb;
+  --color-brand-800: #3f2ba3;
+  --color-brand-900: #352a80;
+  --color-brand-950: #211a4f;
+
+  /* Accent — "growth" teal, used sparingly next to the brand colour */
+  --color-accent-400: #34d3c4;
+  --color-accent-500: #14b8a6;
+  --color-accent-600: #0d9488;
+
+  --radius-card: 1rem;
+  --radius-control: 0.75rem;
+
+  --shadow-card: 0 1px 2px rgb(17 20 48 / 0.04), 0 1px 3px rgb(17 20 48 / 0.06);
+  --shadow-card-hover: 0 12px 28px -8px rgb(17 20 48 / 0.16), 0 4px 10px -4px rgb(17 20 48 / 0.08);
+  --shadow-pop: 0 18px 44px -12px rgb(17 20 48 / 0.28), 0 4px 12px -4px rgb(17 20 48 / 0.12);
+  --shadow-glow: 0 10px 30px -8px rgb(91 63 232 / 0.55);
+
+  --animate-fade-in: fade-in 0.18s ease-out;
+  --animate-pop-in: pop-in 0.16s cubic-bezier(0.16, 1, 0.3, 1);
+  --animate-slide-up: slide-up 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  --animate-slide-in-left: slide-in-left 0.26s cubic-bezier(0.16, 1, 0.3, 1);
+  --animate-shimmer: shimmer 1.6s ease-in-out infinite;
+  --animate-float: float 6s ease-in-out infinite;
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+  }
+  @keyframes pop-in {
+    from {
+      opacity: 0;
+      transform: translateY(-4px) scale(0.97);
+    }
+  }
+  @keyframes slide-up {
+    from {
+      opacity: 0;
+      transform: translateY(12px);
+    }
+  }
+  @keyframes slide-in-left {
+    from {
+      transform: translateX(-100%);
+    }
+  }
+  @keyframes shimmer {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.45;
+    }
+  }
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-8px);
+    }
+  }
+}
+
+:root {
+  color-scheme: light;
+  --bg: #f6f7fc;
+  --surface: #ffffff;
+  --surface-muted: #f0f2f9;
+  --border: #e3e6f0;
+  --border-strong: #cdd2e3;
+  --fg: #12152e;
+  --fg-muted: #555c78;
+  --fg-subtle: #69708d;
+
+  --primary: var(--color-brand-600);
+  --primary-hover: var(--color-brand-700);
+  --primary-ink: var(--color-brand-700);
+  --primary-soft: var(--color-brand-50);
+
+  --success-ink: #047857;
+  --warning-ink: #b45309;
+  --danger-ink: #be123c;
+}
+
+.dark {
+  color-scheme: dark;
+  --bg: #0a0c1d;
+  --surface: #12152b;
+  --surface-muted: #1a1e39;
+  --border: #272c4c;
+  --border-strong: #383f68;
+  --fg: #eef0fb;
+  --fg-muted: #a7aeca;
+  --fg-subtle: #8e96b5;
+
+  --primary: var(--color-brand-500);
+  --primary-hover: var(--color-brand-400);
+  --primary-ink: var(--color-brand-300);
+  --primary-soft: rgb(109 85 245 / 0.16);
+
+  --success-ink: #6ee7b7;
+  --warning-ink: #fcd34d;
+  --danger-ink: #fda4af;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-muted: var(--surface-muted);
+  --color-line: var(--border);
+  --color-line-strong: var(--border-strong);
+  --color-fg: var(--fg);
+  --color-fg-muted: var(--fg-muted);
+  --color-fg-subtle: var(--fg-subtle);
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-ink: var(--primary-ink);
+  --color-primary-soft: var(--primary-soft);
+  --color-success-ink: var(--success-ink);
+  --color-warning-ink: var(--warning-ink);
+  --color-danger-ink: var(--danger-ink);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    background-color: var(--bg);
+    color: var(--fg);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-brand-500);
+    outline-offset: 2px;
+    border-radius: 6px;
+  }
+  ::selection {
+    background: rgb(109 85 245 / 0.25);
+  }
+  button:not(:disabled),
+  [role='button']:not([aria-disabled='true']),
+  summary {
+    cursor: pointer;
+  }
+}
+
+@layer components {
+  .container-page {
+    width: 100%;
+    max-width: 80rem;
+    margin-inline: auto;
+    padding-inline: 1rem;
+  }
+  @media (min-width: 640px) {
+    .container-page {
+      padding-inline: 1.5rem;
+    }
+  }
+  @media (min-width: 1024px) {
+    .container-page {
+      padding-inline: 2rem;
+    }
+  }
+  .card {
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-card);
+  }
+  .text-gradient {
+    background-image: linear-gradient(120deg, var(--color-brand-500), var(--color-accent-500));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: var(--border-strong) transparent;
+  }
+  .no-scrollbar {
+    scrollbar-width: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
