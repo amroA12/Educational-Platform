@@ -58,9 +58,9 @@ function CourseCardBase({ course, variant = 'catalog' }: CourseCardProps) {
       <div className="relative">
         <CourseThumbnail course={course} className="aspect-[16/10]" />
         <div className="absolute left-3 top-3 flex flex-wrap gap-1.5">
-          {course.bestseller && <Badge tone="warning">Bestseller</Badge>}
-          {discount > 0 && !isEnrolled && <Badge tone="success">{discount}% off</Badge>}
-          {isEnrolled && <Badge tone="brand">Enrolled</Badge>}
+          {course.bestseller && <Badge tone="overlay">Bestseller</Badge>}
+          {discount > 0 && !isEnrolled && <Badge tone="solidSuccess">{discount}% off</Badge>}
+          {isEnrolled && <Badge tone="solidBrand">Enrolled</Badge>}
         </div>
         <button
           type="button"

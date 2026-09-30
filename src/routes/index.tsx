@@ -10,7 +10,10 @@ export const router = createBrowserRouter([
     children: [
       {
         element: <PublicLayout />,
-        children: [{ path: '*', element: lazyPage(() => import('@/pages/NotFound')) }],
+        children: [
+          { index: true, element: lazyPage(() => import('@/pages/Home')) },
+          { path: '*', element: lazyPage(() => import('@/pages/NotFound')) },
+        ],
       },
     ],
   },

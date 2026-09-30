@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react'
 import { cn } from '@/utils/cn'
 
-export type BadgeTone = 'neutral' | 'brand' | 'success' | 'warning' | 'danger' | 'info'
+export type BadgeTone = 'neutral' | 'brand' | 'success' | 'warning' | 'danger' | 'info' | 'overlay' | 'solidSuccess' | 'solidBrand'
 
 const tones: Record<BadgeTone, string> = {
   neutral: 'bg-surface-muted text-fg-muted',
@@ -10,6 +10,10 @@ const tones: Record<BadgeTone, string> = {
   warning: 'bg-amber-500/15 text-warning-ink',
   danger: 'bg-rose-500/12 text-danger-ink',
   info: 'bg-sky-500/12 text-sky-700 dark:text-sky-300',
+  // Opaque variants for badges that sit on top of imagery, where tinted backgrounds lose contrast.
+  overlay: 'bg-white text-slate-900 shadow-sm',
+  solidSuccess: 'bg-emerald-600 text-white shadow-sm',
+  solidBrand: 'bg-primary text-white shadow-sm',
 }
 
 interface BadgeProps {

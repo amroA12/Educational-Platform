@@ -8,6 +8,7 @@ interface SectionHeadingProps {
   action?: ReactNode
   align?: 'left' | 'center'
   as?: 'h1' | 'h2'
+  id?: string
   className?: string
 }
 
@@ -18,6 +19,7 @@ export function SectionHeading({
   action,
   align = 'left',
   as: Heading = 'h2',
+  id,
   className,
 }: SectionHeadingProps) {
   return (
@@ -32,7 +34,7 @@ export function SectionHeading({
         {eyebrow && (
           <p className="mb-2 text-sm font-bold uppercase tracking-wider text-primary-ink">{eyebrow}</p>
         )}
-        <Heading className="text-2xl font-extrabold sm:text-3xl">{title}</Heading>
+        <Heading id={id} className="text-2xl font-extrabold sm:text-3xl">{title}</Heading>
         {description && <p className="mt-2 text-fg-muted sm:text-lg">{description}</p>}
       </div>
       {action}
