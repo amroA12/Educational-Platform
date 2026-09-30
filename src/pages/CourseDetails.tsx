@@ -75,7 +75,7 @@ export default function CourseDetails() {
         <ErrorState onRetry={retry} />
       ) : (
         <>
-          <div className="grid gap-x-10 gap-y-12 lg:grid-cols-[minmax(0,1fr)_22rem] xl:grid-cols-[minmax(0,1fr)_24rem]">
+          <div className="grid grid-cols-1 gap-x-10 gap-y-12 lg:grid-cols-[minmax(0,1fr)_22rem] xl:grid-cols-[minmax(0,1fr)_24rem]">
             <div className="lg:col-start-1 lg:row-start-1">
               <CourseHeader course={course} />
             </div>
@@ -87,7 +87,7 @@ export default function CourseDetails() {
             <div className="min-w-0 space-y-12 lg:col-start-1 lg:row-start-2">
 
               <Section id="learn" title="What you'll learn">
-                <ul className="grid gap-3 sm:grid-cols-2">
+                <ul className="grid grid-cols-1 gap-3 sm:grid-cols-2">
                   {course.learn.map((item) => (
                     <li key={item} className="card flex items-start gap-3 p-4">
                       <span className="mt-0.5 flex size-5 shrink-0 items-center justify-center rounded-full bg-emerald-500/15 text-success-ink">

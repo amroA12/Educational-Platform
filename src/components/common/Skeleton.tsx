@@ -37,7 +37,7 @@ export function CourseGridSkeleton({ count = 6 }: { count?: number }) {
     <div
       role="status"
       aria-label="Loading courses"
-      className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3"
+      className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3"
     >
       {Array.from({ length: count }, (_, index) => (
         <CourseCardSkeleton key={index} />
@@ -53,12 +53,12 @@ export function DashboardSkeleton() {
         <Skeleton className="h-8 w-64" />
         <Skeleton className="h-4 w-48" />
       </div>
-      <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
         {Array.from({ length: 4 }, (_, index) => (
           <Skeleton key={index} className="h-28 rounded-2xl" />
         ))}
       </div>
-      <div className="grid gap-6 xl:grid-cols-3">
+      <div className="grid grid-cols-1 gap-6 xl:grid-cols-3">
         <Skeleton className="h-80 rounded-2xl xl:col-span-2" />
         <Skeleton className="h-80 rounded-2xl" />
       </div>
@@ -69,7 +69,7 @@ export function DashboardSkeleton() {
 export function CourseDetailsSkeleton() {
   return (
     <div role="status" aria-label="Loading course" className="space-y-8">
-      <div className="grid gap-8 lg:grid-cols-[1fr_22rem]">
+      <div className="grid grid-cols-1 gap-8 lg:grid-cols-[1fr_22rem]">
         <div className="space-y-4">
           <Skeleton className="h-4 w-40" />
           <Skeleton className="h-10 w-3/4" />

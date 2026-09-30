@@ -16,6 +16,7 @@ interface MenuProps {
   items: MenuItem[]
   header?: ReactNode
   align?: 'start' | 'end'
+  side?: 'top' | 'bottom'
 }
 
 const itemClasses = (danger?: boolean) =>
@@ -26,7 +27,7 @@ const itemClasses = (danger?: boolean) =>
   )
 
 /** Dropdown action menu with arrow-key navigation. */
-export function Menu({ button, items, header, align = 'end' }: MenuProps) {
+export function Menu({ button, items, header, align = 'end', side }: MenuProps) {
   const onKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
     const nodes = Array.from(
       event.currentTarget.querySelectorAll<HTMLElement>('[role="menuitem"]'),
@@ -45,6 +46,7 @@ export function Menu({ button, items, header, align = 'end' }: MenuProps) {
     <Popover
       haspopup="menu"
       align={align}
+      side={side}
       trigger={button}
       panelClassName="w-60 p-1.5"
     >

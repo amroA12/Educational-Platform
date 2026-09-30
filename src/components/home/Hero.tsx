@@ -21,7 +21,7 @@ export function Hero() {
         aria-hidden="true"
         className="absolute inset-0 -z-10 opacity-60 [background-image:radial-gradient(circle_at_15%_10%,rgb(109_85_245/0.18),transparent_45%),radial-gradient(circle_at_85%_30%,rgb(20_184_166/0.14),transparent_40%)]"
       />
-      <div className="container-page grid items-center gap-14 py-14 sm:py-20 lg:grid-cols-[1.05fr_1fr] lg:gap-10 lg:py-24">
+      <div className="container-page grid grid-cols-1 items-center gap-14 py-14 sm:py-20 lg:grid-cols-[1.05fr_1fr] lg:gap-10 lg:py-24">
         <div className="max-w-xl">
           <p className="inline-flex items-center gap-2 rounded-full border border-line bg-surface px-3.5 py-1.5 text-sm font-semibold text-fg-muted shadow-sm">
             <span className="size-2 rounded-full bg-accent-500" aria-hidden="true" />

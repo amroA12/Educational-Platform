@@ -1,5 +1,8 @@
 import { createBrowserRouter } from 'react-router-dom'
+import { AuthLayout } from '@/layouts/AuthLayout'
 import { PublicLayout } from '@/layouts/PublicLayout'
+import { AppLayout } from '@/layouts/AppLayout'
+import { GuestOnly, RequireAuth } from './guards'
 import { lazyPage } from './lazyPage'
 import { RootShell, RouteError } from './RootShell'
 
@@ -23,6 +26,31 @@ export const router = createBrowserRouter([
             element: lazyPage(() => import('@/pages/InfoPage')),
           })),
           { path: '*', element: lazyPage(() => import('@/pages/NotFound')) },
+        ],
+      },
+      {
+        element: <GuestOnly />,
+        children: [
+          {
+            element: <AuthLayout />,
+            children: [
+              { path: 'login', element: lazyPage(() => import('@/pages/Login')) },
+              { path: 'register', element: lazyPage(() => import('@/pages/Register')) },
+            ],
+          },
+        ],
+      },
+      {
+        element: <RequireAuth />,
+        children: [
+          {
+            element: <AppLayout />,
+            children: [
+              { path: 'dashboard', element: lazyPage(() => import('@/pages/Dashboard')) },
+              { path: 'my-courses', element: lazyPage(() => import('@/pages/MyCourses')) },
+            ],
+          },
+          { path: 'learn/:courseId/:lessonId', element: lazyPage(() => import('@/pages/Learn')) },
         ],
       },
     ],

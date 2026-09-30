@@ -74,7 +74,7 @@ export default function Courses() {
         </p>
       </header>
 
-      <div className="grid gap-4 sm:grid-cols-[1fr_auto]">
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-[1fr_auto]">
         <Input
           type="search"
           aria-label="Search courses"
@@ -113,7 +113,7 @@ export default function Courses() {
         ))}
       </div>
 
-      <div className="mt-8 grid gap-8 lg:grid-cols-[16rem_1fr]">
+      <div className="mt-8 grid grid-cols-1 gap-8 lg:grid-cols-[16rem_1fr]">
         <aside className="hidden lg:block" aria-label="Filters">
           <div className="card sticky top-24 p-5">
             <h2 className="mb-4 text-base font-extrabold">Filters</h2>

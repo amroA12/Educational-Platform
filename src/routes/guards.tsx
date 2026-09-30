@@ -12,6 +12,7 @@ export function RequireAuth() {
 /** Keeps signed-in users away from login / register. */
 export function GuestOnly() {
   const user = useAuthStore((state) => state.user)
-  if (user) return <Navigate to="/dashboard" replace />
+  const from = (useLocation().state as { from?: string } | null)?.from
+  if (user) return <Navigate to={from ?? '/dashboard'} replace />
   return <Outlet />
 }

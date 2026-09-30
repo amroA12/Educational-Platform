@@ -51,7 +51,7 @@ export function CategoriesSection() {
           title="Explore top categories"
           description="From code to creativity, find the skills that move your career forward."
         />
-        <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {categories.map((category) => (
             <li key={category.id}>
               <CategoryCard category={category} />
@@ -73,7 +73,7 @@ export function WhyLearnify() {
         title="Everything you need to actually finish what you start"
         description="We combine great teaching with the tools that keep you consistent."
       />
-      <ul className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+      <ul className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
         {features.map((feature) => {
           const Icon = featureIcons[feature.icon]
           return (
@@ -106,7 +106,7 @@ export function TopInstructors() {
             </ButtonLink>
           }
         />
-        <ul className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <ul className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {topInstructors.map((instructor) => (
             <li key={instructor.id}>
               <InstructorCard instructor={instructor} />
@@ -128,7 +128,7 @@ export function Testimonials() {
         title="Real stories, real progress"
         description="Illustrative testimonials from our fictional community of learners."
       />
-      <ul className="grid gap-5 md:grid-cols-2">
+      <ul className="grid grid-cols-1 gap-5 md:grid-cols-2">
         {testimonials.map((item) => (
           <li key={item.id}>
             <figure className="card flex h-full flex-col p-6 sm:p-7">

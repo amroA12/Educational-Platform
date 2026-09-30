@@ -1,3 +1,4 @@
+import { format, parseISO } from 'date-fns'
 import { useMemo } from 'react'
 import { getLessons } from '@/data/lessons'
 import { useCourseStore } from '@/store/courseStore'
@@ -71,4 +72,29 @@ export const getCourseProgressInfo = (courseId: string, completedIds: string[] =
   const total = getLessons(courseId).length
   const done = completedIds.length
   return { done, total, percent: total === 0 ? 0 : Math.round((done / total) * 100) }
+}
+
+export interface WeeklyActivityPoint {
+  key: string
+  day: string
+  hours: number
+}
+
+/** Learning hours for each of the last seven days, oldest first. */
+export const useWeeklyActivity = (): WeeklyActivityPoint[] => {
+  const studyLog = useProgressStore((state) => state.studyLog)
+  return useMemo(
+    () =>
+      Array.from({ length: 7 }, (_, index) => {
+        const daysAgo = 6 - index
+        const key = dateKeyDaysAgo(daysAgo)
+        const minutes = studyLog[key]?.minutes ?? 0
+        return {
+          key,
+          day: format(parseISO(key), 'EEE'),
+          hours: Math.round((minutes / 60) * 10) / 10,
+        }
+      }),
+    [studyLog],
+  )
 }

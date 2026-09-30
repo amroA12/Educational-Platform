@@ -12,7 +12,7 @@ const highlights = [
 
 export function AuthLayout() {
   return (
-    <div className="grid min-h-dvh lg:grid-cols-[1fr_1.05fr]">
+    <div className="grid grid-cols-1 min-h-dvh lg:grid-cols-[1fr_1.05fr]">
       <div className="flex flex-col px-5 py-6 sm:px-10">
         <header className="flex items-center justify-between">
           <Logo />

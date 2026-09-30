@@ -24,7 +24,7 @@ export function CourseReviews({ course }: { course: Course }) {
 
   return (
     <div>
-      <div className="card grid gap-6 p-5 sm:grid-cols-[auto_1fr] sm:items-center sm:gap-10 sm:p-6">
+      <div className="card grid grid-cols-1 gap-6 p-5 sm:grid-cols-[auto_1fr] sm:items-center sm:gap-10 sm:p-6">
         <div className="text-center sm:px-6">
           <p className="text-5xl font-extrabold">{course.rating.toFixed(1)}</p>
           <Rating value={course.rating} showValue={false} size="md" className="mt-2" />

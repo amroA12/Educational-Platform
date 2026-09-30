@@ -213,6 +213,22 @@
     background-clip: text;
     color: transparent;
   }
+  .player-range::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 14px;
+    height: 14px;
+    border-radius: 9999px;
+    background: #fff;
+    box-shadow: 0 1px 4px rgb(0 0 0 / 0.5);
+  }
+  .player-range::-moz-range-thumb {
+    width: 14px;
+    height: 14px;
+    border: 0;
+    border-radius: 9999px;
+    background: #fff;
+    box-shadow: 0 1px 4px rgb(0 0 0 / 0.5);
+  }
   .scrollbar-thin {
     scrollbar-width: thin;
     scrollbar-color: var(--border-strong) transparent;

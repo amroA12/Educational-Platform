@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react'
 import { Link } from 'react-router-dom'
 import { BarChart3, Clock, Globe, PlayCircle, RefreshCw, Users } from 'lucide-react'
 import { getCategory } from '@/data/categories'
@@ -8,7 +9,7 @@ import { Avatar } from '@/components/common/Avatar'
 import { Badge } from '@/components/common/Badge'
 import { Rating } from '@/components/common/Rating'
 
-function Meta({ icon: Icon, children }: { icon: typeof Clock; children: React.ReactNode }) {
+function Meta({ icon: Icon, children }: { icon: typeof Clock; children: ReactNode }) {
   return (
     <li className="inline-flex items-center gap-1.5">
       <Icon className="size-4 text-fg-subtle" aria-hidden="true" />

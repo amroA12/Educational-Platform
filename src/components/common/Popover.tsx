@@ -13,6 +13,7 @@ interface PopoverProps {
   trigger: (props: TriggerProps, state: { open: boolean }) => ReactNode
   children: (helpers: { close: () => void }) => ReactNode
   align?: 'start' | 'end'
+  side?: 'top' | 'bottom'
   haspopup?: 'dialog' | 'menu'
   className?: string
   panelClassName?: string
@@ -23,6 +24,7 @@ export function Popover({
   trigger,
   children,
   align = 'end',
+  side = 'bottom',
   haspopup = 'dialog',
   className,
   panelClassName,
@@ -48,7 +50,8 @@ export function Popover({
         <div
           id={panelId}
           className={cn(
-            'absolute top-full z-50 mt-2 origin-top animate-pop-in rounded-2xl border border-line bg-surface shadow-pop',
+            'absolute z-50 animate-pop-in rounded-2xl border border-line bg-surface shadow-pop',
+            side === 'bottom' ? 'top-full mt-2 origin-top' : 'bottom-full mb-2 origin-bottom',
             align === 'end' ? 'right-0' : 'left-0',
             panelClassName,
           )}
