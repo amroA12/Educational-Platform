@@ -48,6 +48,8 @@ export const router = createBrowserRouter([
             children: [
               { path: 'dashboard', element: lazyPage(() => import('@/pages/Dashboard')) },
               { path: 'my-courses', element: lazyPage(() => import('@/pages/MyCourses')) },
+              { path: 'quiz/:courseId', element: lazyPage(() => import('@/pages/Quiz')) },
+              { path: 'quiz/:courseId/results', element: lazyPage(() => import('@/pages/QuizResults')) },
             ],
           },
           { path: 'learn/:courseId/:lessonId', element: lazyPage(() => import('@/pages/Learn')) },
