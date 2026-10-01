@@ -1,4 +1,3 @@
-import { useNavigate } from 'react-router-dom'
 import { Award, ChevronDown, LayoutDashboard, LogOut, Settings, User as UserIcon } from 'lucide-react'
 import { signOut } from '@/lib/session'
 import { selectFullName, useAuthStore } from '@/store/authStore'
@@ -8,7 +7,6 @@ import { Menu } from './Menu'
 
 export function UserMenu() {
   const user = useAuthStore((state) => state.user)
-  const navigate = useNavigate()
   if (!user) return null
   const name = selectFullName(user)
 
@@ -40,10 +38,10 @@ export function UserMenu() {
           label: 'Sign out',
           icon: <LogOut className="size-4" />,
           danger: true,
+          // Protected routes send users home after an intentional sign-out (see RequireAuth).
           onSelect: () => {
             signOut()
             toast.info('Signed out', 'See you soon!')
-            navigate('/')
           },
         },
       ]}

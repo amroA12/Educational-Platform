@@ -26,12 +26,19 @@ export type EditableProfile = Pick<
 interface AuthState {
   user: User | null
   remember: boolean
-  login: (input: LoginInput) => Promise<User>
-  loginDemo: () => Promise<User>
-  register: (input: RegisterInput) => Promise<User>
+  /** Saved profiles by email, so edits survive signing out and back in. */
+  profiles: Record<string, User>
+  /** True right after an intentional sign-out (not persisted); lets route guards send users home instead of to /login. */
+  justSignedOut: boolean
+  /** `beforeCommit` runs with the resolved user just before the session starts, so dependent data is ready on first render. */
+  login: (input: LoginInput, beforeCommit?: (user: User) => void) => Promise<User>
+  loginDemo: (beforeCommit?: (user: User) => void) => Promise<User>
+  register: (input: RegisterInput, beforeCommit?: (user: User) => void) => Promise<User>
   logout: () => void
   updateProfile: (patch: Partial<EditableProfile>) => void
 }
+
+const profileKey = (email: string) => email.toLowerCase()
 
 const capitalize = (value: string) => value.charAt(0).toUpperCase() + value.slice(1)
 
@@ -53,6 +60,16 @@ const userFromEmail = (email: string): User => {
   }
 }
 
+type SetState = (partial: Partial<AuthState> | ((state: AuthState) => Partial<AuthState>)) => void
+
+const commit = (set: SetState, user: User, remember: boolean) =>
+  set((state) => ({
+    user,
+    remember,
+    justSignedOut: false,
+    profiles: { ...state.profiles, [profileKey(user.email)]: user },
+  }))
+
 /**
  * Demo authentication: there is no server. Sign-in is simulated with a short delay
  * and the resulting user is persisted locally (see `sessionAwareStorage` for "Remember me").
@@ -62,40 +79,45 @@ export const useAuthStore = create<AuthState>()(
     (set, get) => ({
       user: null,
       remember: true,
-      login: async ({ email, password, remember }) => {
+      profiles: {},
+      justSignedOut: false,
+      login: async ({ email, password, remember }, beforeCommit) => {
         await delay(700)
         if (password.length < 6) throw new Error('Incorrect email or password.')
-        const existing = get().user
-        const isSameUser = existing?.email.toLowerCase() === email.toLowerCase()
-        const user = isSameUser
-          ? existing
-          : email.toLowerCase() === DEMO_EMAIL
-            ? demoUser
-            : userFromEmail(email)
-        set({ user, remember })
+        const user =
+          get().profiles[profileKey(email)] ??
+          (profileKey(email) === DEMO_EMAIL ? demoUser : userFromEmail(email))
+        beforeCommit?.(user)
+        commit(set, user, remember)
         return user
       },
-      loginDemo: async () => {
+      loginDemo: async (beforeCommit) => {
         await delay(500)
-        const existing = get().user
-        const user = existing?.email === DEMO_EMAIL ? existing : demoUser
-        set({ user, remember: true })
+        const user = get().profiles[DEMO_EMAIL] ?? demoUser
+        beforeCommit?.(user)
+        commit(set, user, true)
         return user
       },
-      register: async ({ firstName, lastName, email }) => {
+      register: async ({ firstName, lastName, email }, beforeCommit) => {
         await delay(900)
         const user: User = { ...userFromEmail(email), firstName, lastName }
-        set({ user, remember: true })
+        beforeCommit?.(user)
+        commit(set, user, true)
         return user
       },
-      logout: () => set({ user: null }),
+      logout: () => set({ user: null, justSignedOut: true }),
       updateProfile: (patch) =>
-        set((state) => (state.user ? { user: { ...state.user, ...patch } } : state)),
+        set((state) => {
+          if (!state.user) return state
+          const user = { ...state.user, ...patch }
+          const { [profileKey(state.user.email)]: _previous, ...others } = state.profiles
+          return { user, profiles: { ...others, [profileKey(user.email)]: user } }
+        }),
     }),
     {
       name: 'auth',
       storage: sessionAwareJson,
-      partialize: (state) => ({ user: state.user, remember: state.remember }),
+      partialize: (state) => ({ user: state.user, remember: state.remember, profiles: state.profiles }),
     },
   ),
 )

@@ -1,8 +1,17 @@
-import { Outlet } from 'react-router-dom'
+import { useEffect } from 'react'
+import { Outlet, useLocation } from 'react-router-dom'
+import { useAuthStore } from '@/store/authStore'
 import { Footer } from './Footer'
 import { Navbar } from './Navbar'
 
 export function PublicLayout() {
+  const { pathname } = useLocation()
+
+  // Once the sign-out redirect has landed on a public page, route guards can go back to normal.
+  useEffect(() => {
+    useAuthStore.setState({ justSignedOut: false })
+  }, [pathname])
+
   return (
     <div className="flex min-h-dvh flex-col">
       <a
