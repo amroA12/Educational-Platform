@@ -14,7 +14,7 @@ export function Skeleton({ className }: SkeletonProps) {
   )
 }
 
-export function CourseCardSkeleton() {
+function CourseCardSkeleton() {
   return (
     <div className="card overflow-hidden" aria-hidden="true">
       <Skeleton className="aspect-[16/10] rounded-none" />
@@ -80,16 +80,6 @@ export function CourseDetailsSkeleton() {
         <Skeleton className="h-72 rounded-2xl" />
       </div>
       <Skeleton className="h-64 rounded-2xl" />
-    </div>
-  )
-}
-
-export function ListSkeleton({ rows = 4 }: { rows?: number }) {
-  return (
-    <div role="status" aria-label="Loading" className="space-y-3">
-      {Array.from({ length: rows }, (_, index) => (
-        <Skeleton key={index} className="h-24 rounded-2xl" />
-      ))}
     </div>
   )
 }

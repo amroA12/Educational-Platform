@@ -1,13 +1,21 @@
 {
-  "name": "educational-platform",
+  "name": "learnify",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "description": "Learnify: a modern, front-end-only educational platform built with React, TypeScript, and Tailwind CSS.",
+  "author": "Amr Elzaygh",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amroA12/Educational-Platform.git"
+  },
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
+    "preview": "vite preview",
     "lint": "oxlint",
-    "preview": "vite preview"
+    "typecheck": "tsc -b"
   },
   "dependencies": {
     "@fontsource-variable/plus-jakarta-sans": "^5.3.0",

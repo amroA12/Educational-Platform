@@ -1,7 +1,7 @@
 import type { Tone } from '@/types'
 
 /** Gradient stops per tone, shared by generated thumbnails, avatars, and category tiles. */
-export const toneGradients: Record<Tone, [string, string]> = {
+const toneGradients: Record<Tone, [string, string]> = {
   violet: ['#7c5cff', '#4527d6'],
   blue: ['#3b82f6', '#1d4ed8'],
   teal: ['#14b8a6', '#0f766e'],

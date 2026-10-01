@@ -19,7 +19,7 @@ interface StatsInput {
 }
 
 /** Consecutive active days ending today (or yesterday, so the streak survives until midnight). */
-export const computeStreak = (studyLog: Record<string, StudyDay>, today: Date = new Date()) => {
+const computeStreak = (studyLog: Record<string, StudyDay>, today: Date = new Date()) => {
   const isActive = (key: string) => {
     const day = studyLog[key]
     return !!day && (day.minutes > 0 || day.lessons > 0)

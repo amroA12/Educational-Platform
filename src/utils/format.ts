@@ -36,6 +36,3 @@ export const pluralize = (count: number, singular: string, plural = `${singular}
 
 export const clamp = (value: number, min: number, max: number) =>
   Math.min(max, Math.max(min, value))
-
-export const toPercent = (part: number, total: number) =>
-  total === 0 ? 0 : Math.round((part / total) * 100)

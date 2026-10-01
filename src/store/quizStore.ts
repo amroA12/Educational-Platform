@@ -24,5 +24,3 @@ export const useQuizStore = create<QuizState>()(
     { name: 'quizzes', storage: persistJson },
   ),
 )
-
-export const latestAttempt = (attempts: QuizResult[] | undefined) => attempts?.at(-1)

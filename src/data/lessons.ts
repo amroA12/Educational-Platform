@@ -476,5 +476,3 @@ export const getLessons = (courseId: string): Lesson[] =>
 
 export const getLesson = (courseId: string, lessonId: string) =>
   getLessons(courseId).find((lesson) => lesson.id === lessonId)
-
-export const getCourseIdsWithCurriculum = () => Object.keys(curricula)

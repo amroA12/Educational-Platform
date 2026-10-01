@@ -35,7 +35,7 @@ export const demoCompletions: { courseId: string; daysAgo: number }[] = [
 export const demoFavorites = ['generative-ai-for-professionals', 'machine-learning-foundations']
 
 /** Weekly learning pattern (hours) applied per weekday, Sunday → Saturday. */
-export const demoWeeklyHours = [2, 2, 1, 3, 2, 4, 1]
+const demoWeeklyHours = [2, 2, 1, 3, 2, 4, 1]
 
 /** Helper exported for seeding; builds a realistic study log for the last `days` days. */
 export const buildDemoStudyLog = (

@@ -5,7 +5,7 @@ import { useProgressStore } from '@/store/progressStore'
  * The lesson a learner should open next: the one they were on if unfinished, otherwise the next
  * unfinished lesson after it, otherwise the first unfinished lesson (or the start once complete).
  */
-export const getResumeLessonId = (
+const getResumeLessonId = (
   courseId: string,
   completedIds: string[] = [],
   lastLessonId?: string,
@@ -21,7 +21,7 @@ export const getResumeLessonId = (
   return (next ?? lessons[Math.max(lastIndex, 0)])?.id
 }
 
-export const learnPath = (courseId: string, lessonId?: string) =>
+const learnPath = (courseId: string, lessonId?: string) =>
   lessonId ? `/learn/${courseId}/${lessonId}` : `/courses/${courseId}`
 
 /** Path a "Continue" button should point to for a course. */

@@ -41,7 +41,7 @@ export const storage = {
 }
 
 /** Adapter so Zustand's persist middleware goes through the same guarded, namespaced storage. */
-export const persistStorage: StateStorage = {
+const persistStorage: StateStorage = {
   getItem: (name) => safe(() => window.localStorage.getItem(PREFIX + name), null),
   setItem: (name, value) =>
     safe(() => window.localStorage.setItem(PREFIX + name, value), undefined),
